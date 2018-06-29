@@ -11,6 +11,7 @@ class MyGetHttpData extends StatefulWidget{
   }
 
 class MyGetHttpDataState extends State<MyGetHttpData>{
+
     final String url = "https://swapi.co/api/planets/";
     List data;
 
@@ -29,6 +30,12 @@ class MyGetHttpDataState extends State<MyGetHttpData>{
     }
   @override
   Widget build(BuildContext context) {
+    var url = "http://192.168.40.8:8080/ajaxValidation.do";
+    http.post(url, body: {"username": "admin", "password":'1',"company":"1","checkCode":"1233"})
+        .then((response) {
+      print("Response status: ${response.statusCode}");
+      print("Response body: ${response.body}");
+    });
     // TODO: implement build
     return new Scaffold(
       appBar: new AppBar(
