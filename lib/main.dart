@@ -4,6 +4,9 @@ import 'components/second.dart';
 import 'components/third.dart';
 import 'components/four.dart';
 import 'components/httpget.dart';
+import 'components/layout.dart';
+import 'components/shared.dart';
+import 'components/listdemo.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -28,7 +31,7 @@ class MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
     super.initState();
 
     // Initialize the Tab Controller
-    controller = new TabController(length: 5, vsync: this);
+    controller = new TabController(length: 6, vsync: this);
   }
 
   @override
@@ -51,7 +54,7 @@ class MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
       // Set the TabBar view as the body of the Scaffold
       body: new TabBarView(
         // Add tabs as widgets
-        children: <Widget>[new FirstTab(), new SecondTab(), new ThirdTab(),new FourTab(),new MyGetHttpData()],
+        children: <Widget>[new FirstTab(), new ListPage(), new ThirdTab(),new FourTab(),new MyGetHttpData(),new SharedDemo()],
         // set the controller
         controller: controller,
       ),
@@ -81,6 +84,9 @@ class MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
             ),new Tab(
               icon: new Icon(Icons.vpn_lock),
               text: "网络请求",
+            ),new Tab(
+              icon: new Icon(Icons.share),
+              text: "shared",
             ),
           ],
           // setup the controller
